@@ -51,7 +51,7 @@ struct StoryBrain {
             storyNumber = currentStory.choice1Destination
         } else if userChoice == currentStory.choice2{ //Second option
             storyNumber = currentStory.choice2Destination
-        }else { //Out of range
+        }else { //The End
             storyNumber = 0
         }
         return storyNumber

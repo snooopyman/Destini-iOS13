@@ -23,10 +23,22 @@ class ViewController: UIViewController {
     }
 
     @IBAction func choiceMade(_ sender: UIButton) {
-        _ = storyBrain.nextStory(userChoice: sender.currentTitle!)
-        updateUI()
 
-    } 
+        if (sender.currentTitle == "The" || sender.currentTitle == "End") {
+            choice2Button.isHidden = true
+            choice1Button.setTitle("Start again", for: .normal)
+            choice1Button.backgroundColor = UIColor.red
+            choice1Button.titleLabel?.font = UIFont.systemFont(ofSize: 34.0, weight: .bold)
+            storyNumber = 0
+            
+            
+        } else {
+            _ = storyBrain.nextStory(userChoice: sender.currentTitle!)
+            choice2Button.isHidden = false
+            updateUI()
+        }
+
+    }
     
     func updateUI() {
         storyLabel.text = storyBrain.stories[storyNumber].title
