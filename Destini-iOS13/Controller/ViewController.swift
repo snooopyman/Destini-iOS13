@@ -23,16 +23,15 @@ class ViewController: UIViewController {
     }
 
     @IBAction func choiceMade(_ sender: UIButton) {
-        var storyNumber = storyBrain.nextStory(userChoice: sender.currentTitle!)
+        _ = storyBrain.nextStory(userChoice: sender.currentTitle!)
         updateUI()
 
-    }
+    } 
     
     func updateUI() {
-        print("Stories\(storyBrain.stories)")
-        storyLabel.text = storyBrain.stories[0].tittle[storyNumber]
-        choice1Button.setTitle(storyBrain.stories[0].choice1[storyNumber], for: .normal)
-        choice2Button.setTitle(storyBrain.stories[0].choice2[storyNumber], for: .normal)
+        storyLabel.text = storyBrain.stories[storyNumber].title
+        choice1Button.setTitle(storyBrain.stories[storyNumber].choice1, for: .normal)
+        choice2Button.setTitle(storyBrain.stories[storyNumber].choice2, for: .normal)
     }
     
 }
