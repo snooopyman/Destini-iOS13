@@ -24,7 +24,7 @@ class ViewController: UIViewController {
 
     @IBAction func choiceMade(_ sender: UIButton) {
 
-        if (sender.currentTitle == "The" || sender.currentTitle == "End") {
+        if (sender.currentTitle == "The" || sender.currentTitle == "End") { //if its "The End"
             choice2Button.isHidden = true
             choice1Button.setTitle("Start again", for: .normal)
             choice1Button.backgroundColor = UIColor.red
@@ -33,7 +33,7 @@ class ViewController: UIViewController {
             
             
         } else {
-            _ = storyBrain.nextStory(userChoice: sender.currentTitle!)
+            storyBrain.nextStory(userChoice: sender.currentTitle!)
             choice2Button.isHidden = false
             updateUI()
         }
@@ -41,9 +41,9 @@ class ViewController: UIViewController {
     }
     
     func updateUI() {
-        storyLabel.text = storyBrain.stories[storyNumber].title
-        choice1Button.setTitle(storyBrain.stories[storyNumber].choice1, for: .normal)
-        choice2Button.setTitle(storyBrain.stories[storyNumber].choice2, for: .normal)
+        storyLabel.text = storyBrain.getStoryTitle()
+        choice1Button.setTitle(storyBrain.getChoice1(), for: .normal)
+        choice2Button.setTitle(storyBrain.getChoice2(), for: .normal)
     }
     
 }
